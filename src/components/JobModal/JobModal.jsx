@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useJobs } from '../../context/JobContext'
+import { useJobs } from '../../context/useJobs'
 import './JobModal.css'
 
 function JobModal({

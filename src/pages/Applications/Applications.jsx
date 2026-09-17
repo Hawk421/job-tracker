@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useJobs } from '../../context/JobContext'
+import { useJobs } from '../../context/useJobs'
 import JobCard from '../../components/JobCard/JobCard'
 
 import './Applications.css'

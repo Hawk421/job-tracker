@@ -1,4 +1,4 @@
-import { useJobs } from '../../context/JobContext'
+import { useJobs } from '../../context/useJobs'
 import StatCard from '../../components/StatCard/StatCard'
 
 import './Statistics.css'

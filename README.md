@@ -1,16 +1,74 @@
-# React + Vite
+# Job Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack job application tracker built with React, Node.js, Express and PostgreSQL.
 
-Currently, two official plugins are available:
+The application allows users to create an account, log in, and manage their job applications with JWT authentication.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- User registration and login
+- Password hashing with bcrypt
+- JWT authentication
+- Protected API routes
+- Create, read, update and delete job applications
+- PostgreSQL database
+- User-specific job data
+- Job status management
+- Search and filtering
+- Statistics dashboard
+- Loading and error states
+- Responsive UI
+- Local development with Vite and Express
+- Neon PostgreSQL database
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+### Frontend
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- React Router
+- Vite
+- JavaScript
+- CSS
+- Context API
+
+### Backend
+
+- Node.js
+- Express
+- PostgreSQL
+- pg
+- JWT
+- bcryptjs
+- CORS
+- dotenv
+
+### Database
+
+- PostgreSQL
+- Neon
+
+## Project Structure
+
+```text
+job-tracker/
+├── src/
+│   ├── components/
+│   ├── context/
+│   ├── pages/
+│   ├── api.js
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── server/
+│   ├── controllers/
+│   ├── db/
+│   ├── middleware/
+│   ├── routes/
+│   ├── server.js
+│   └── package.json
+│
+├── .env.example
+├── .gitignore
+├── package.json
+└── README.md

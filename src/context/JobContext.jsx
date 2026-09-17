@@ -1,36 +1,28 @@
 import {
-  createContext,
-  useContext,
   useEffect,
   useState,
 } from 'react'
 
-import { useAuth } from './AuthContext'
+import { JobContext } from './jobContextValue'
 
+import { useAuth } from './useAuth'
 import { apiFetch } from '../api'
-
-const JobContext = createContext()
 
 export function JobProvider({ children }) {
   const { token } = useAuth()
 
   const [jobs, setJobs] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(Boolean(token))
   const [error, setError] = useState(null)
   const [actionError, setActionError] = useState(null)
   const [actionLoading, setActionLoading] = useState(false)
 
   useEffect(() => {
     if (!token) {
-      setJobs([])
-      setLoading(false)
       return
     }
 
-    setLoading(true)
-    setError(null)
-
-apiFetch('/jobs')
+    apiFetch('/jobs')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to load jobs')
@@ -55,13 +47,13 @@ apiFetch('/jobs')
     setActionLoading(true)
 
     try {
-const response = await apiFetch(
-  '/jobs',
-  {
-    method: 'POST',
-    body: JSON.stringify(newJob),
-  }
-)
+      const response = await apiFetch(
+        '/jobs',
+        {
+          method: 'POST',
+          body: JSON.stringify(newJob),
+        }
+      )
 
       if (!response.ok) {
         throw new Error('Failed to create job')
@@ -93,13 +85,13 @@ const response = await apiFetch(
     setActionLoading(true)
 
     try {
-const response = await apiFetch(
-  `/jobs/${updatedJob.id}`,
-  {
-    method: 'PUT',
-    body: JSON.stringify(updatedJob),
-  }
-)
+      const response = await apiFetch(
+        `/jobs/${updatedJob.id}`,
+        {
+          method: 'PUT',
+          body: JSON.stringify(updatedJob),
+        }
+      )
 
       if (!response.ok) {
         throw new Error('Failed to update job')
@@ -134,12 +126,12 @@ const response = await apiFetch(
     setActionLoading(true)
 
     try {
-const response = await apiFetch(
-  `/jobs/${jobId}`,
-  {
-    method: 'DELETE',
-  }
-)
+      const response = await apiFetch(
+        `/jobs/${jobId}`,
+        {
+          method: 'DELETE',
+        }
+      )
 
       if (!response.ok) {
         throw new Error('Failed to delete job')
@@ -168,8 +160,8 @@ const response = await apiFetch(
   return (
     <JobContext.Provider
       value={{
-        jobs,
-        loading,
+        jobs: token ? jobs : [],
+        loading: token ? loading : false,
         error,
         actionError,
         actionLoading,
@@ -181,8 +173,4 @@ const response = await apiFetch(
       {children}
     </JobContext.Provider>
   )
-}
-
-export function useJobs() {
-  return useContext(JobContext)
 }
