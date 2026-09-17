@@ -1,0 +1,228 @@
+.dashboard {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.dashboard__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.dashboard__header h1 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #111827;
+}
+
+.dashboard__header p {
+  margin: 8px 0 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+/* =========================
+   Statistics
+   ========================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+/* =========================
+   Applications
+   ========================= */
+
+.jobs-section {
+  margin-top: 8px;
+}
+
+.jobs-section__header {
+  margin-bottom: 16px;
+}
+
+.jobs-section__header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 650;
+  color: #111827;
+}
+
+.jobs-section__header p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.jobs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* =========================
+   Alert
+   ========================= */
+
+.dashboard-alert {
+  margin-bottom: 24px;
+  padding: 12px 16px;
+
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+
+  background: #fef2f2;
+  color: #b91c1c;
+
+  font-size: 14px;
+}
+
+/* =========================
+   Empty state
+   ========================= */
+
+.empty-state {
+  padding: 56px 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.empty-state__icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 16px;
+
+  border-radius: 50%;
+
+  background: #eff6ff;
+  color: #2563eb;
+
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.empty-state h3 {
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  color: #111827;
+}
+
+.empty-state p {
+  max-width: 360px;
+  margin: 8px 0 0;
+
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* =========================
+   Loading
+   ========================= */
+
+.dashboard-state {
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  color: #6b7280;
+}
+
+.dashboard-state p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.dashboard-state--error {
+  text-align: center;
+}
+
+.dashboard-state--error h2 {
+  margin: 0;
+
+  font-size: 20px;
+  color: #111827;
+}
+
+.dashboard-state--error p {
+  color: #6b7280;
+}
+
+.dashboard-spinner {
+  width: 28px;
+  height: 28px;
+
+  border: 3px solid #e5e7eb;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+
+  animation: dashboard-spin 0.8s linear infinite;
+}
+
+@keyframes dashboard-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    padding: 20px 16px;
+  }
+
+  .dashboard__header {
+    margin-bottom: 24px;
+  }
+
+  .dashboard__header h1 {
+    font-size: 26px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .empty-state {
+    padding: 40px 20px;
+  }
+}
